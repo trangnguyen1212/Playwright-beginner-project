@@ -1,0 +1,18 @@
+[
+    {
+        "testID": "01",
+        "testDescription": "Client App login",
+        "username" : "anshika@gmail.com",
+        "password" : "Iamking@000",
+        "productName":"ZARA COAT 3"
+    },
+
+    {
+        "testID": "02",
+        "testDescription": "Client App login 2",
+        "username" : "anshika@gmail.com",
+        "password" : "Iamking@000",
+        "productName":"ADIDAS ORIGINAL"
+    }
+
+]

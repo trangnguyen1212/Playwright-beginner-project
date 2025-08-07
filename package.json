@@ -1,0 +1,21 @@
+{
+  "name": "playwright-beginner-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/NetworlTest2.spec.js --headed --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.29",
+    "allure-playwright": "^3.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "exceljs": "^4.4.0"
+  }
+}
