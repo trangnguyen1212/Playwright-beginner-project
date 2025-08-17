@@ -50,6 +50,7 @@ const config =  defineConfig({
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
    reporter: [
     ["dot"],
+    ['list'],
     ["allure-playwright", {
       detail: false,
       suiteTitle: false,

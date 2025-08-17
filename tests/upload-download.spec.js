@@ -38,7 +38,7 @@ async function writeExcelTest(searchText,replaceText,change,filePath)
 //writeExcelTest("Mango",350,{rowChange:0,colChange:2},"/Users/rahulshetty/downloads/excelTest.xlsx");
 test('Upload download excel validation',async ({page})=>
 {
-  const filePath = "D:/IT Knownledge/Javascript/1. Playwright/Playwright-beginner-project/doawnload/download.xlsx";
+  const filePath = "/Users/trangnguyen/Documents/plyawright/Playwright-beginner-project/doawnload/download.xlsx";
   const textSearch = 'Mango';
   const updateValue = '350';
   await page.goto("https://rahulshettyacademy.com/upload-download-test/index.html");
