@@ -1,5 +1,6 @@
 const ExcelJs = require('exceljs');
 const { test, expect } = require('@playwright/test');
+const path = require('path');
 
 // Read excel file
 async function readExcel(worksheet,searchText)
@@ -35,10 +36,11 @@ async function writeExcelTest(searchText,replaceText,change,filePath)
 
 
 //update Mango Price to 350. 
-//writeExcelTest("Mango",350,{rowChange:0,colChange:2},"/Users/rahulshetty/downloads/excelTest.xlsx");
+//writeExcelTest("Mango",350,{rowChange:0,colChange:2},"/Users/trangnguyen/Documents/plyawright/Playwright-beginner-project/doawnload/download.xlsx");
 test('Upload download excel validation',async ({page})=>
 {
-  const filePath = "/Users/trangnguyen/Documents/plyawright/Playwright-beginner-project/doawnload/download.xlsx";
+  const outputDir = path.join(__dirname, '..', 'doawnload');
+  const filePath = path.join(outputDir, 'download.xlsx');
   const textSearch = 'Mango';
   const updateValue = '350';
   await page.goto("https://rahulshettyacademy.com/upload-download-test/index.html");
