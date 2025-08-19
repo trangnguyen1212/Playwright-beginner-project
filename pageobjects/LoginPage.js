@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+
 class LoginPage {
 
 constructor(page)
@@ -11,7 +13,7 @@ constructor(page)
 
 async goTo()
 {
-    await this.page.goto("https://rahulshettyacademy.com/client");
+    await this.page.goto(process.env.BASE_URL);
 }
 
 async validLogin(username,password)
