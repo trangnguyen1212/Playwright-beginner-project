@@ -1,5 +1,3 @@
-import dotenv from 'dotenv'
-
 class LoginPage {
 
 constructor(page)

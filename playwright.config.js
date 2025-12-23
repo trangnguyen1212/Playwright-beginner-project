@@ -19,6 +19,7 @@ dotenv.config();
 const timeInMin = 40 * 1000;
 const config =  defineConfig({
     testDir: './tests',
+    workers: 4, // all 4 test cases in Testsuite in parallel, with each worker handling one test case.
     //https://playwright.dev/docs/test-timeouts
     // timeout applied for every steps 
     //timeout: 40 * 1000,
@@ -33,15 +34,16 @@ const config =  defineConfig({
       browserName: /** @type {'chromium' | 'firefox' | 'webkit' | undefined} */ (process.env.BROWSER?.toLowerCase()),
       //browserName: 'chromium', 
       headless: false,
-     
 
       /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+      // Select Behaviors in the Allure report, Retries shows on the right table 
       trace: 'on-first-retry',
         screenshot: { 
         mode: "only-on-failure",
         fullPage: true,
       },
       video: "retain-on-failure",
+      viewport: {width:1280, height:720},
 
     }, 
     outputDir: "./test-results/failure", 
@@ -62,26 +64,18 @@ const config =  defineConfig({
     }],
     ['html', { open: 'never', outputFolder: "./test-results/report" }]
     
-  ],
-    
-    /* Run tests in files in parallel */
-    fullyParallel: true,
-    /* Fail the build on CI if you accidentally left test.only in the source code. */
-    forbidOnly: !!process.env.CI,
-    /* Retry on CI only */
-    retries: process.env.CI ? 2 : 0,
-    /* Opt out of parallel tests on CI. */
-    workers: process.env.CI ? 1 : undefined,
+  ], 
 
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     
  
 
-  /* Configure projects for major browsers */
+  /* Configure projects for test multiple browsers */
   
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
+    // 
+    // project [
+    // { name: 'Mobile Chrome',
     //   use: { ...devices['Pixel 5'] },
     // },
     // {
@@ -97,7 +91,7 @@ const config =  defineConfig({
     // {
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // }, 
+    // }], 
 
   /* Run your local dev server before starting the tests */
   // webServer: {

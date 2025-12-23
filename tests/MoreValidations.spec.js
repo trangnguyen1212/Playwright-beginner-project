@@ -1,7 +1,11 @@
    const {test,expect} = require('@playwright/test')
-
-//test.describe.configure({mode:'parallel'});
-//test.describe.configure({mode:'serial'});
+/* Add tag to run all cases in parallel -> log show: Running 3 workers
+test.describe.configure({mode:'parallel'});
+*/ 
+/* Add tag all the tests sequentially following the order like Test 1 -> run test 2 -> test 3
+helpful if test case are dependent on each other. Ex: Test 1 create data for test 2 to use
+test.describe.configure({mode:'serial'});
+*/
 
 test("@Web Popup validations",async({page})=>
 {
